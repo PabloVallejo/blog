@@ -3,8 +3,12 @@ layout: post
 title: Hosting Your Site on Github Using Jekyll
 ---
 
-Some days ago I decided to create my personal site, and I was thinking
-on what CMS should I use, given that most of the times I try to adopt and try new technologies
-when I get into a new project, and this was certainly one, so since I had been working a lot with WordPress, I decided that this time I would use jekyll, which seems very popular, simple and what's better, can be hosted for free on GitHub.
+Some days ago I decided to create my personal site, I was thinking
+on what CMS should I use for it and given that most of the times I try to adopt and try new technologies
+when I get into a new project, I decided to use a something new for me this time.
+
+Since I had been working a lot with WordPress, I decided that this time I would use jekyll, which seems very popular, simple and can be hosted for free on [GitHub](https://github.com).
 
 ![image](/assets/img/jekyll-1.jpg)
+
+**Note: This post is a work in progress, the remaining part will be posted soon.**
