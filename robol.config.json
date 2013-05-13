@@ -1,0 +1,25 @@
+{
+  "styles": {
+    "input_dir": "./assets/less",
+    "input_files": [
+      "style.less"
+    ],
+    "output_dir": "./assets/css/",
+    "output_file": "style.min.css",
+    "minify": true,
+    "minify_config": {
+      "yuicompress": true
+    },
+    "lint": true,
+    "lint_config": {}
+  },
+  "scripts": {
+    "input_dir": "./assets/js",
+    "input_files": [
+      "main.js"
+    ],
+    "output_dir": "./assets/js/",
+    "output_file": "scripts.min.js",
+    "minify": false
+  }
+}
