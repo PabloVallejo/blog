@@ -131,7 +131,7 @@ $ git push origin gh-pages
 
 After doing this, you may have to wait up to 10 minutes to reach your site at the respective URL.
 
-Jekyll sites doesn't need any special setup in order to be generated once they are on GitHub,
+Jekyll sites don't need any special setup in order to be generated once they are on GitHub,
 since GitHub will do the generation process right after every commit. So, if you create a post or make lets say a layout change and
 commit it to GitHub, it will be on your live site automatically.
 
