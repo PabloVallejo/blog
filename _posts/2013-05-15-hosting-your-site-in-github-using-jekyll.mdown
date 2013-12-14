@@ -46,8 +46,8 @@ $ gem install jekyll
 $ gem install rdiscount
 </pre>
 
-After you have Jekyll installed, you can download the [starting point site](https://github.com/PabloVallejo/jekyll-base) which
-is a boilerplate to help you with the setup.
+After you have Jekyll installed, you can download the [starting point site](https://github.com/PabloVallejo/Jekyll-Bootstrap) which
+is a boilerplate with Bootstrap included which will help you with the setup.
 
 The structure of the basic site includes layouts, posts and folders to store assets.
 
