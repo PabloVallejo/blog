@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Remove Custom Post Type Slug From Permalinks In WordPress
+title: Removing Custom Post Type Slug From Permalinks In WordPress
 ---
 
 Some days ago I needed to remove the custom post type slug from the URL in a WordPress project, so that our post types URLs would look prettier, that is, instead of looking, `.com/event/my-awesome-event` look `.com/my-awesome-event`.
