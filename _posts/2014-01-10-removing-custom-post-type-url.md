@@ -10,16 +10,19 @@ After trying different solutions, including editing the `.htaccess` file, I foun
 
 First, the post type is created and a filter is called on `post_type_link` hook, so that the permalink of the post type gets the slug removed.
 
-<pre class="prettyprint" data-lang="php">
+{% highlight php startinline %}
 /**
  * Register a custom post type but don't do anything fancy
  */
-register_post_type( 'event', array( 'label' => 'Event', 'public' => true ) );
-</pre>
+register_post_type( 
+    'event', array( 'label' => 'Event', 'public' => true ) 
+);
+{% endhighlight %}
 
-<pre class="prettyprint" data-lang="php">
+{% highlight php startinline %}
 /**
- * Remove the slug from published post permalinks. Only affect our CPT though.
+ * Remove the slug from published post permalinks. 
+ * Only affect our CPT though.
  */
 function vipx_remove_cpt_slug( $post_link, $post, $leavename ) {
  
@@ -27,16 +30,18 @@ function vipx_remove_cpt_slug( $post_link, $post, $leavename ) {
     	|| 'publish' != $post->post_status )
         return $post_link;
  
-    $post_link = str_replace( '/' . $post->post_type . '/', '/', $post_link );
+    $post_link = str_replace( 
+        '/' . $post->post_type . '/', '/', $post_link 
+    );
  
     return $post_link;
 }
 add_filter( 'post_type_link', 'vipx_remove_cpt_slug', 10, 3 );
-</pre>
+{% endhighlight %}
 
 And then as the second part, we tell WordPress not only to show posts or pages on URLs like `.com/<post-or-page-name>` but also to show custom post types.
 
-<pre class="prettyprint" data-lang="php">
+{% highlight php startinline %}
 /**
  * Some hackery to have WordPress match postname to any of our public 
  * post types. All of our public post types can have /post-name/ as 
@@ -51,16 +56,16 @@ function vipx_parse_request_tricksy( $query ) {
  
     // Only noop our very specific rewrite rule match
     if ( 2 != count( $query->query )
-        || ! isset( $query->query['page'] ) )
+        || ! isset( $query->query[ 'page' ] ) )
         return;
  
     // 'name' will be set if post permalinks are just post_name, 
     // otherwise the page rule will match
-    if ( ! empty( $query->query['name'] ) )
+    if ( ! empty( $query->query[ 'name' ] ) )
         $query->set( 'post_type', array( 'post', 'event', 'page' ) );
 }
 add_action( 'pre_get_posts', 'vipx_parse_request_tricksy' );
-</pre>
+{% endhighlight %}
 
 The only caveat to this method, is that you should take care not to have a regular post and a post from a custom post type having the same URL, because WordPress would likely render the most recent one. Other than that, it can be very helpful to easily have URLs with a more simple format.
 

@@ -1,2 +1,8 @@
 _drafts/
 _site/
+
+/node_modules
+/npm-debug.log
+
+/bower.json
+/bower_components

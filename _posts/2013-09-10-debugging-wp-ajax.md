@@ -17,17 +17,17 @@ A simple example of this method used for creating a post via AJAX without using 
 Create the function that will handle the request, this sample function is globally accessible,
 however you should want to have it in a controller or a simple class to handle requests.
 
-<pre class="prettyprint" data-lang="php">
+{% highlight php startinline %}
 /**
 * Function that will handle post insertion with data in
 * POST request.
 *
-* &lt;code&gt;
+* <code>;
 *
 *	// Sample returned response
 *	array( 'status'=> 200 );
 *
-* &lt;/code&gt;
+* </code>;
 *
 * Note: you should validate your data before creating a
 * WordPress Post.
@@ -60,42 +60,41 @@ function ajax_create_post() {
 
 }
 
-</pre>
+{% endhighlight %}
 
 **Bind the function to an action**
 
 Bind the function that will handle the request to a `WordPress Action` so that everytime such action is triggered,
 the handle function will be executed.
 
-<pre class="prettyprint" data-lang="php">
+{% highlight php startinline %}
 // Bind action "wp_ajax_ajax_create_post" to "ajax_create_post" function.
 add_action( 'wp_ajax_ajax_create_post', 'ajax_create_post' );
 
-</pre>
+{% endhighlight %}
 
 **Set attributes in `_POST` variable**
 
 Set the data you want your handler to get when the action is triggered.
 
-<pre class="prettyprint" data-lang="php">
+{% highlight php startinline %}
 // Set the _POST attributes you want to use.
 $_POST = array(
 		'post_title' => 'My post title'
 	,	'post_content' => 'Sample post inserted via AJAX'
 );
 
-</pre>
+{% endhighlight %}
 
 **Trigger the action**
 
 Now that the action is bound to a function and that we've set `_POST` attributes, we can trigger
 the action to actually insert a post, and test our request handler.
 
-<pre class="prettyprint" data-lang="php">
+{% highlight php startinline %}
 // Trigger action
 do_action( 'wp_ajax_ajax_create_post' );
-
-</pre>
+{% endhighlight %}
 
 
 Directly defining `_POST` attributes has helped me testing my code easily and I

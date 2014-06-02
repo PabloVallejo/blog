@@ -1,3 +1,18 @@
+# Dependencies
+markdown:         redcarpet
+pygments:         true
+
+title:            Blog
+tagline:          'Personal blog for web development writings'
+
+author:
+  name:           'Pablo Vallejo'
+  url:            https://twitter.com/PabloVallejo_
+
+paginate:         1
+
+# Custom vars
+version:          0.1.0
 
 # Permalink structure: /:year/:month/:day/:title
 permalink: /:title

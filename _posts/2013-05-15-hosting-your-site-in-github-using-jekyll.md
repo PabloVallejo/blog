@@ -41,17 +41,17 @@ Also, I enjoy the fact that you can write posts from your favorite code editor a
 Since [Jekyll](http://jekyllrb.com) is a ruby gem, you have to have [Ruby](http://www.ruby-lang.org/) installed to run it.
 Download [Ruby](http://www.ruby-lang.org/en/downloads/) for your operating system and after you have it installed, install jekyll from the command line.
 
-<pre class="prettyprint" data-lang="shell">
+{% highlight bash %}
 $ gem install jekyll
 $ gem install rdiscount
-</pre>
+{% endhighlight %}
 
 After you have Jekyll installed, you can download the [starting point site](https://github.com/PabloVallejo/Jekyll-Bootstrap) which
 is a boilerplate with Bootstrap included which will help you with the setup.
 
 The structure of the basic site includes layouts, posts and folders to store assets.
 
-<pre class="prettyprint" data-lang="shell">
+{% highlight bash %}
 .
 |-- _config.yml
 |-- _layouts
@@ -63,36 +63,35 @@ The structure of the basic site includes layouts, posts and folders to store ass
 |-- js
 |-- index.html
 
-
-</pre>
+{% endhighlight %}
 
 The configuration file **config.yml** is intended to specify global configuration options
 for the site, like permalink structure, regeneration, timezone and the like.
 
-<pre class="prettyprint" data-lang="yml">
+{% highlight yaml %}
 # config.yml
 auto: true
 permalink: /:year/:month/:day/:title
-</pre>
+{% endhighlight %}
 
 After you have downloaded the basic site, you are ready to run jekyll. Note that the `_site` directory
 is the result of the build Jekyll does with the site files, so you don't have to modify it.
 Change directory to the folder you downloaded the files into, open the command line and start the Jekyll server by typing the following command.
 
-<pre class="prettyprint" data-lang="bash">
+{% highlight bash %}
 $ jekyll --server
-</pre>
+{% endhighlight %}
 
 After doind so, you will get an output more or less like this:
 
-<pre class="prettyprint" data-lang="bash">
+{% highlight bash %}
 Configuration from C:/mysite/_config.yml
 Auto-regenerating enabled: C:/mysite -> C:/m
 [2013-05-15 20:34:22] regeneration: 59 files changed
 [2013-05-15 20:34:22] INFO  WEBrick 1.3.1
 [2013-05-15 20:34:22] INFO  ruby 1.9.3 (2013-02-22) [i386-mingw32]
 [2013-05-15 20:34:23] INFO  WEBrick::HTTPServer#start: pid=4444 port=4000
-</pre>
+{% endhighlight %}
 
 
 By default, Jekyll server runs at `http://localhost:4000`, so you can open the browser
@@ -109,25 +108,25 @@ it and checkout the proper branch for your type of page, **Project Page**: `gh-p
 
 **User/organization setup**
 
-<pre class="prettyprint" data-lang="bash">
+{% highlight bash %}
 $ git remote add origin https://github.com/your-username/your-username.github.io.git
 # Creates a remote named "origin" pointing at your GitHub repository
 
 $ git push origin master
 # Sends your commits in the "master" branch to GitHub
 
-</pre>
+{% endhighlight %}
 
 **Project page setup**
 
-<pre class="prettyprint" data-lang="bash">
+{% highlight bash %}
 $ git remote add origin https://github.com/your-username/your-project.git
 # Creates a remote named "origin" pointing at your GitHub repository
 
 $ git push origin gh-pages
 # Sends your commits in the "gh-pages" branch to GitHub
 
-</pre>
+{% endhighlight %}
 
 After doing this, you may have to wait up to 10 minutes to reach your site at the respective URL.
 

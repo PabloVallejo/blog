@@ -1,0 +1,30 @@
+{
+  "name": "blog",
+  "version": "0.0.2",
+  "description": "Personal blog for writings about web development",
+  "main": "Gruntfile.js",
+  "scripts": {
+    "test": "grunt test --verbose"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/PabloVallejo/blog.git"
+  },
+  "keywords": [
+    "jekyll",
+    "grunt",
+    "less"
+  ],
+  "author": "Pablo Vallejo",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/PabloVallejo/blog/issues"
+  },
+  "homepage": "https://github.com/PabloVallejo/blog",
+  "devDependencies": {
+    "grunt": "~0.4.5",
+    "grunt-cli": "~0.1.7",
+    "grunt-contrib-less": "~0.11.1",
+    "grunt-contrib-watch": "~0.6.1"
+  }
+}
