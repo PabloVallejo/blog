@@ -69,7 +69,54 @@ add_action( 'pre_get_posts', 'vipx_parse_request_tricksy' );
 
 The only caveat to this method, is that you should take care not to have a regular post and a post from a custom post type having the same URL, because WordPress would likely render the most recent one. Other than that, it can be very helpful to easily have URLs with a more simple format.
 
-**Source: [WordPress VIP](http://vip.wordpress.com/documentation/remove-the-slug-from-your-custom-post-type-permalinks/).**
+#### Troubleshooting  
+
+After the publication of this post, there have been several comments of users having issues with overwriting URLs. Following there are instructions on how to solve the most common errors.
+
+**1. Getting a 404 error**
+
+This happens because you haven't added your post type name in the array passed as second parameter to `$query->set`. In this case our post name is called `event`, so our array looks like the following.
+
+{% highlight php startinline %}
+array( 'post', 'event', 'page' );
+{% endhighlight  %}
+
+However, if you named you post type differently, you should add its name to the array, so that it looks like this.
+
+{% highlight php startinline %}
+array( 'post', 'YOUR-POST-TYPE-NAME', 'page' );
+{% endhighlight  %}
+
+The example below, shows the section in which you should pass the array.
+
+{% highlight php startinline %}
+function vipx_parse_request_tricksy( $query ) {
+    
+    // ... 
+    
+    // Add post name to the array. 
+    if ( ! empty( $query->query[ 'name' ] ) )
+        $query->set( 'post_type', array( 'post', 'event', 'page' ) );
+}
+{% endhighlight %}
+
+**2. Custom post type rendering in `single.php` rather than `post-<type>.php`**
+
+This problem is likely to be related with the way you define you custom post type. In this example, we define it the simplest way.
+
+{% highlight php startinline %}
+register_post_type( 
+    'event', array( 'label' => 'Event', 'public' => true ) 
+);
+{% endhighlight %}
+
+Nevertheless, when registering the post passing it more attributes, you should be careful with the rewrites. To learn more about registering post types, take a look at its [documentation](http://codex.wordpress.org/Function_Reference/register_post_type).
 
 
+#### Useful links
 
+Following, there are links to the documentation of the functions we used in this article.
+
+* [Register post type](http://codex.wordpress.org/Function_Reference/register_post_type)
+* [Add filter](http://codex.wordpress.org/Function_Reference/add_filter)
+* [Add action](http://codex.wordpress.org/Function_Reference/add_action)
